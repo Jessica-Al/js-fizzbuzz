@@ -3,27 +3,29 @@ function fizzbuzz() {
     console.log("WELCOME TO FIZZBUZZ");
 
     //initialise multiples to check
-    const fizz = 3
-    const buzz = 5
+    const fizz = 3;
+    const buzz = 5;
 
     //initilaise counter
     for (let count = 1; count <= 100; count ++) {
-        //fizzbuzz check
-        if (count % fizz == 0 && count % buzz == 0) {
-            console.log("fizzbuzz");
+        //true if the number is not a multiple of `fizz` or `buzz`
+        let no_multiples = true;
+        //fizz check
+        if (count % fizz == 0) {
+            no_multiples = false
+            process.stdout.write("fizz");
         }
         //buzz check
-        else if (count % buzz == 0) {
-            console.log("buzz");
+        if (count % buzz == 0) {
+            no_multiples = false
+            process.stdout.write("buzz");
         }
-        //fizz check
-        else if (count % fizz == 0) {
-            console.log("fizz");
+        //not a multiple of `fizz` or `buzz`
+        if (no_multiples) {
+            process.stdout.write(count.toString());
         }
-        //not a multiple of 3 and/or 5
-        else {
-            console.log(count);
-        }
+        //newline for next number
+        process.stdout.write("\n");
     }
 
 }
